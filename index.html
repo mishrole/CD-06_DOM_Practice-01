@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile (Core)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <div class="nav-flex">
+                <h1 class="nav-title">Profile</h1>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#" class="active">My Profile</a></li>
+                    <li><a href="#">Find Connections</a></li>
+                    <li><button class="btn">Sign Out</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <div class="card">
+                        <div class="card-profile-header">
+                            <div class="profile">
+                                <img src="./assets/images/profile.svg" alt="Profile image" id="profileImageContainer">
+                            </div>
+                        </div>
+                        <div class="card-profile-body">
+                            <p class="card-profile-title" id="profileNameContainer"></p>
+                            <p class="card-profile-subtitle">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span id="profileLocationContainer"></span>
+                            </p>
+                            <p id="profileBioContainer"></p>
+                        </div>
+                        <div class="card-profile-footer">
+                            <!-- Trigger/Open The Modal -->
+                            <a href="/" class="card-profile-cta" id="editProfile">
+                                <i class="fas fa-cog"></i> <span>edit profile</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header-dark">
+                            <span>Education</span>
+                        </div>
+                        <div class="card-body-dark">
+                            <!-- TODO: change card-body-dark to card__body--dark -->
+                            <div class="education">
+                                <p class="education-item education-title">Coding Dojo - Full Stack Bootcamp</p>
+                                <p class="education-item education-date">Jan 2022 - Apr 2022</p>
+                                <p class="education-item education-description">Triple black belt in Python, MERN, and
+                                    Java...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header-dark">
+                            <div class="pill" id="requestsCounter"></div>
+                            <span>Connection Requests</span>
+                        </div>
+                        <div class="card-request-body">
+                            <ul class="card-list" id="requestsContainer">
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header-dark">
+                            <div class="pill large" id="connectionsCounter">418</div>
+                            <span>Your Connections</span>
+                        </div>
+                        <div class="card-body-dark">
+                            <ul class="card-list">
+                                <li class="card-list-item">
+                                    <div class="profile-small">
+                                        <img src="./assets/images/adrien-s.jpg" alt="Adrien D">
+                                        <span>Adrien D</span>
+                                    </div>
+                                </li>
+                                <li class="card-list-item">
+                                    <div class="profile-small">
+                                        <img src="./assets/images/anne-s.jpg" alt="Anne S">
+                                        <span>Anne J</span>
+                                    </div>
+                                </li>
+                                <li class="card-list-item">
+                                    <div class="profile-small">
+                                        <img src="./assets/images/alayne-s.jpg" alt=">Alayne T">
+                                        <span>Alayne T</span>
+                                    </div>
+                                </li>
+                                <li class="card-list-item">
+                                    <div class="profile-small">
+                                        <img src="./assets/images/arry-s.jpg" alt="Arry Y<">
+                                        <span>Arry Y</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#">View More</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- The Modal -->
+    <div id="editProfileModal" class="modal">
+        <!-- Modal content -->
+        <div class="container">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close" id="closeModal">&times;</span>
+                    <h2>Edit profile</h2>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de Edit Profile -->
+                    <form action="/" method="post">
+                        <div class="row">
+                            <div class="col">
+                                <label for="formFullname" class="form-label">Full Name</label>
+                                <input type="text" id="formFullname" name="fullname" class="form-control">
+
+                                <label for="formLocation" class="form-label">Location</label>
+                                <input type="text" id="formLocation" name="location" class="form-control">
+
+                                <label for="formBio" class="form-label">Bio</label>
+                                <textarea name="bio" id="formBio" rows=3 class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row text-center">
+                            <div class="col">
+                                <button type="submit" class="btn btn-dark" id="saveEditProfile">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- <div class="modal-footer">
+                    <h3>Modal Footer</h3>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/app.js"></script>
+</body>
+
+</html>
